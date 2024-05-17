@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ES2020",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "moduleResolution": "Node"
+  }
+}

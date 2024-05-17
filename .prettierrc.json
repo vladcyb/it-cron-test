@@ -1,0 +1,14 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^[a-zA-Z].*|@(?!/).*",
+    "^.(.*)(.ts)|(.tsx)$|^.[^.]*$",
+    "^..\/.*$",
+    "^(.*).s?css$"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "endOfLine": "auto"
+}
