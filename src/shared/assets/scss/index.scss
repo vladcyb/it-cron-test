@@ -1,0 +1,35 @@
+@forward 'src/shared/assets/scss/variables';
+@forward 'src/shared/assets/scss/mixins';
+
+@import 'src/shared/assets/fonts/index.scss';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* colors */
+  --c-dark: #131212;
+  --c-primary: #fb6542;
+}
+
+body {
+  font-family: Inter, serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--c-primary);
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  color: #fff;
+  font-family: Inter, serif;
+}

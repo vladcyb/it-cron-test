@@ -1,0 +1,67 @@
+.toggle-filters {
+  display: flex;
+  font-size: 48px;
+  font-weight: 200;
+  align-items: center;
+}
+
+.toggle-filters__rect {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #fff;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  margin-right: 32px;
+  transition: background-color 0.3s;
+}
+
+.toggle-filters__line {
+  width: 80px;
+  height: 0;
+  border: 1px solid #fff;
+  margin-right: 32px;
+  transition: all 0.3s;
+}
+
+.toggle-filters__text {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.toggle-filters__clear-text {
+  font-size: 24px;
+  color: var(--c-primary);
+  margin: 0 20px 5px 0;
+  font-weight: 700;
+}
+
+.toggle-filters__clear-line {
+  height: 0;
+  width: 35px;
+  border: 1px solid #fb6542;
+  margin-right: 20px;
+}
+
+/* Стили для состояния открытых фильтров */
+.toggle-filters_opened {
+  .toggle-filters__line {
+    width: 0;
+    margin-right: 0;
+    border-width: 0;
+  }
+
+  .toggle-filters__text {
+    color: var(--c-primary);
+  }
+
+  .toggle-filters__rect {
+    background: #fff;
+  }
+}
+
+/* Стили для состояния, когда выбран хотя бы один фильтр */
+.toggle-filters_selected {
+  .toggle-filters__rect {
+    border: 3px solid var(--c-primary);
+  }
+}

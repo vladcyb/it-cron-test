@@ -1,0 +1,59 @@
+@use 'src/shared/assets/scss' as *;
+
+.cases-page {
+  width: 1550px;
+  margin: 0 auto;
+  padding-top: 20px;
+
+  @include media-breakpoint-down(xxlg) {
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding-top: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.cases-page__header {
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cases-page__title {
+  font-size: 150px;
+  font-weight: 800;
+}
+
+.cases-page__rect {
+  margin-left: 60%;
+  width: 45px;
+  height: 45px;
+  border-radius: 5px;
+  transform: rotate(15deg);
+  border: 4px solid #fff;
+}
+
+.cases-page__section-rect {
+  margin-top: 45px;
+  width: 65px;
+  height: 65px;
+  border: 4px solid #fff;
+  border-radius: 5px;
+  transform: rotate(45deg);
+}
+
+.cases-page__board {
+  margin-top: 130px;
+  padding: 0 100px;
+}
