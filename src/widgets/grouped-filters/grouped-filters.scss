@@ -1,0 +1,11 @@
+.grouped-filters {
+  display: flex;
+  justify-content: stretch;
+  width: 100%;
+}
+
+.grouped-filters__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
