@@ -1,4 +1,4 @@
-export type CaseFilter = {
+export type Filter = {
   Id: string
   Name: string
 }

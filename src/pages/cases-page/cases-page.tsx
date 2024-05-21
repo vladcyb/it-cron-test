@@ -1,6 +1,6 @@
-import { Header } from './header/header'
+import { Header } from './header'
 import { Footer } from '@/shared/ui/footer'
-import { CasesBoard } from '@/widgets/cases/cases-board'
+import { CasesBoard } from '@/widgets/cases'
 
 import './cases-page.scss'
 

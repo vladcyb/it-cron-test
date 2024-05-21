@@ -1,8 +1,9 @@
 import { clsx } from 'clsx'
-import { useMemo } from 'react'
+import { useUnit } from 'effector-react'
+import { useEffect, useMemo } from 'react'
 
-import { casesMock } from './cases-mock'
-import type { Case } from './types/case'
+import { Case } from '@/entities/cases'
+import { $casesStore, fetchCasesFx } from '@/features/cases'
 
 import './cases-board.scss'
 
@@ -15,12 +16,17 @@ type CaseWithIndex = Case & {
 }
 
 export const CasesBoard = ({ className }: Props) => {
-  const { Data: items } = casesMock
-  const borderIndex = Math.floor(items.length / 2)
+  const { data: cases } = useUnit($casesStore)
+
+  useEffect(() => {
+    fetchCasesFx()
+  }, [])
+
+  const borderIndex = Math.floor(cases.length / 2)
 
   const numberedItems: CaseWithIndex[] = useMemo(
-    () => items.map((item, index) => ({ ...item, index })),
-    [items],
+    () => cases.map((item, index) => ({ ...item, index })),
+    [cases],
   )
 
   const leftColumnItems = numberedItems.slice(0, borderIndex)
