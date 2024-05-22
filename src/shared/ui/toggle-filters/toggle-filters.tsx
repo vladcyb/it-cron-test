@@ -7,7 +7,7 @@ type Props = {
   isOpened: boolean
   onClick: () => void
   isClear: boolean
-  clear: () => void
+  onClear: () => void
 }
 
 export const ToggleFilters = ({
@@ -15,7 +15,7 @@ export const ToggleFilters = ({
   isOpened,
   onClick,
   isClear,
-  clear,
+  onClear,
 }: Props) => (
   <div
     className={clsx(
@@ -27,7 +27,7 @@ export const ToggleFilters = ({
   >
     {!isClear && (
       <>
-        <button className="toggle-filters__clear-text" onClick={clear}>
+        <button className="toggle-filters__clear-text" onClick={onClear}>
           Очистить
         </button>
         <div className="toggle-filters__clear-line" />

@@ -1,9 +1,9 @@
-import { Filter } from './filter'
+import { CaseFilterItem } from '@/entities/cases'
 
 export type Case = {
   CaseColor: string
   FeaturesTitle: string | null
-  Filters: Filter[]
+  Filters: CaseFilterItem[]
   FriendlyURL: string
   Id: string
   Image: string

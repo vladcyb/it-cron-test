@@ -1,9 +1,9 @@
 import { clsx } from 'clsx'
 import { useUnit } from 'effector-react'
-import { useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { Case } from '@/entities/cases'
-import { $casesStore, fetchCasesFx } from '@/features/cases'
+import { $casesStore } from '@/features/cases'
 
 import './cases-board.scss'
 
@@ -16,18 +16,21 @@ type CaseWithIndex = Case & {
 }
 
 export const CasesBoard = ({ className }: Props) => {
-  const { data: cases } = useUnit($casesStore)
-
-  useEffect(() => {
-    fetchCasesFx()
-  }, [])
-
-  const borderIndex = Math.floor(cases.length / 2)
+  const { cases, selectedFilters } = useUnit($casesStore)
 
   const numberedItems: CaseWithIndex[] = useMemo(
-    () => cases.map((item, index) => ({ ...item, index })),
-    [cases],
+    () =>
+      cases
+        .filter(
+          (item) =>
+            !selectedFilters.size ||
+            item.Filters.some((item) => selectedFilters.has(item.Id)),
+        )
+        .map((item, index) => ({ ...item, index })),
+    [cases, selectedFilters],
   )
+
+  const borderIndex = Math.floor(numberedItems.length / 2)
 
   const leftColumnItems = numberedItems.slice(0, borderIndex)
   const rightColumnItems = numberedItems.slice(borderIndex)
@@ -52,7 +55,7 @@ type RenderColumnProps = {
 }
 
 function renderColumn({ columnClassName, items }: RenderColumnProps) {
-  const lightColors = ['FFFFFF', 'F6F6F6', 'F7EDDD']
+  const lightColors = new Set(['FFFFFF', 'F6F6F6', 'F7EDDD'])
 
   return (
     <div className={columnClassName}>
@@ -85,9 +88,7 @@ function renderColumn({ columnClassName, items }: RenderColumnProps) {
               <div
                 className="cases-board__item-description"
                 style={{
-                  color: lightColors.includes(backgroundColor)
-                    ? '#131212'
-                    : 'white',
+                  color: lightColors.has(backgroundColor) ? '#131212' : 'white',
                 }}
               >
                 <div className="cases-board__item-description-title">

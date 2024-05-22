@@ -1,4 +1,4 @@
-export type Filter = {
+export type FilterItem = {
   Id: string
   Name: string
 }

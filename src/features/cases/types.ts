@@ -1,5 +1,7 @@
-import { Case } from '@/entities/cases'
+import { Case, CasesGroupedFilterItem } from '@/entities/cases'
 
 export type State = {
-  data: Case[]
+  cases: Case[]
+  filters: CasesGroupedFilterItem[]
+  selectedFilters: Set<string>
 }
